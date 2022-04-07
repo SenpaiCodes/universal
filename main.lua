@@ -1,608 +1,984 @@
-local MoveMouse = mousemoverel
-local ReadFile = readfile
-local WriteFile = writefile
-local IsFile = isfile
-local IsFolder = isfolder
-local MakeFolder = makefolder
-local ListFiles = listfiles
-local GlobalEnvironment = getgenv
+-- Gui to Lua
+-- Version: 3.2
 
-if GlobalEnvironment().beachwave then
-    GlobalEnvironment().beachwave.Unload()
+-- Instances:
+
+local ZenHubOfficial = Instance.new("ScreenGui")
+local TopBarKeySystem = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local MainKeyFrame = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local KeyInput = Instance.new("TextBox")
+local UICorner_3 = Instance.new("UICorner")
+local Admin = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local GetKey = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local Login = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local IGNORETHIS = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TopBarMain = Instance.new("Frame")
+local UICorner_7 = Instance.new("UICorner")
+local Selection = Instance.new("Frame")
+local UICorner_8 = Instance.new("UICorner")
+local IGNORE = Instance.new("Frame")
+local IGNORE_2 = Instance.new("Frame")
+local All = Instance.new("TextButton")
+local UICorner_9 = Instance.new("UICorner")
+local Universal = Instance.new("TextButton")
+local UICorner_10 = Instance.new("UICorner")
+local ExitScript = Instance.new("ImageButton")
+local UICorner_11 = Instance.new("UICorner")
+local TextLabel_2 = Instance.new("TextLabel")
+local MainCheats = Instance.new("Frame")
+local UICorner_12 = Instance.new("UICorner")
+local IGNORE_3 = Instance.new("Frame")
+local IGNORE_4 = Instance.new("Frame")
+local TextLabel_3 = Instance.new("TextLabel")
+local UICorner_13 = Instance.new("UICorner")
+local AllCheats = Instance.new("ScrollingFrame")
+local ChamsText = Instance.new("TextLabel")
+local UICorner_14 = Instance.new("UICorner")
+local ToggleChams = Instance.new("TextButton")
+local UICorner_15 = Instance.new("UICorner")
+local AimbotText = Instance.new("TextLabel")
+local UICorner_16 = Instance.new("UICorner")
+local ToggleAimbot = Instance.new("TextButton")
+local UICorner_17 = Instance.new("UICorner")
+local UniversalCheats = Instance.new("ScrollingFrame")
+local ChamsText_2 = Instance.new("TextLabel")
+local UICorner_18 = Instance.new("UICorner")
+local ToggleChams_2 = Instance.new("TextButton")
+local UICorner_19 = Instance.new("UICorner")
+local AimbotText_2 = Instance.new("TextLabel")
+local UICorner_20 = Instance.new("UICorner")
+local ToggleAimbot_2 = Instance.new("TextButton")
+local UICorner_21 = Instance.new("UICorner")
+local ConfirmExit = Instance.new("Frame")
+local UICorner_22 = Instance.new("UICorner")
+local Yes = Instance.new("TextButton")
+local UICorner_23 = Instance.new("UICorner")
+local No = Instance.new("TextButton")
+local UICorner_24 = Instance.new("UICorner")
+local TextLabel_4 = Instance.new("TextLabel")
+local UICorner_25 = Instance.new("UICorner")
+local LoadingScreen = Instance.new("Frame")
+local Z = Instance.new("TextLabel")
+local H = Instance.new("TextLabel")
+
+TopBarMain.Active = true
+TopBarMain.Draggable = true
+
+TopBarKeySystem.Active = true
+TopBarKeySystem.Draggable = true
+
+ConfirmExit.Active = true
+ConfirmExit.Draggable = true
+
+LoadingScreen.Active = true
+LoadingScreen.Draggable = true
+
+--Properties:
+
+ZenHubOfficial.Name = "ZenHubOfficial"
+ZenHubOfficial.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ZenHubOfficial.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+TopBarKeySystem.Name = "TopBarKeySystem"
+TopBarKeySystem.Parent = ZenHubOfficial
+TopBarKeySystem.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+TopBarKeySystem.Position = UDim2.new(0.388125807, 0, 0.379365057, 0)
+TopBarKeySystem.Size = UDim2.new(0, 363, 0, 184)
+TopBarKeySystem.Visible = false
+TopBarKeySystem.ZIndex = 999
+
+UICorner.Parent = TopBarKeySystem
+
+MainKeyFrame.Name = "MainKeyFrame"
+MainKeyFrame.Parent = TopBarKeySystem
+MainKeyFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+MainKeyFrame.BorderSizePixel = 0
+MainKeyFrame.Position = UDim2.new(0, 0, 0.146739125, 0)
+MainKeyFrame.Size = UDim2.new(0, 363, 0, 157)
+MainKeyFrame.ZIndex = 1000
+
+UICorner_2.Parent = MainKeyFrame
+
+KeyInput.Name = "KeyInput"
+KeyInput.Parent = MainKeyFrame
+KeyInput.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+KeyInput.Position = UDim2.new(0.052341599, 0, 0.12101911, 0)
+KeyInput.Size = UDim2.new(0, 326, 0, 50)
+KeyInput.ZIndex = 1000
+KeyInput.Font = Enum.Font.GothamBold
+KeyInput.Text = "Key Goes Here"
+KeyInput.TextColor3 = Color3.fromRGB(103, 103, 103)
+KeyInput.TextSize = 20.000
+
+UICorner_3.Parent = KeyInput
+
+Admin.Name = "Admin"
+Admin.Parent = MainKeyFrame
+Admin.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Admin.Position = UDim2.new(0.413223147, 0, 0.554140091, 0)
+Admin.Size = UDim2.new(0, 120, 0, 50)
+Admin.ZIndex = 1000
+Admin.Font = Enum.Font.GothamBold
+Admin.Text = "Admin"
+Admin.TextColor3 = Color3.fromRGB(255, 255, 255)
+Admin.TextSize = 25.000
+
+UICorner_4.Parent = Admin
+
+GetKey.Name = "GetKey"
+GetKey.Parent = MainKeyFrame
+GetKey.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+GetKey.Position = UDim2.new(0.774104655, 0, 0.554140091, 0)
+GetKey.Size = UDim2.new(0, 64, 0, 50)
+GetKey.ZIndex = 1000
+GetKey.Font = Enum.Font.GothamBold
+GetKey.Text = "🔑"
+GetKey.TextColor3 = Color3.fromRGB(255, 255, 255)
+GetKey.TextSize = 25.000
+
+UICorner_5.Parent = GetKey
+
+Login.Name = "Login"
+Login.Parent = MainKeyFrame
+Login.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Login.Position = UDim2.new(0.0523416102, 0, 0.554140091, 0)
+Login.Size = UDim2.new(0, 120, 0, 50)
+Login.ZIndex = 1000
+Login.Font = Enum.Font.GothamBold
+Login.Text = "Login"
+Login.TextColor3 = Color3.fromRGB(255, 255, 255)
+Login.TextSize = 25.000
+
+UICorner_6.Parent = Login
+
+IGNORETHIS.Name = "IGNORETHIS"
+IGNORETHIS.Parent = MainKeyFrame
+IGNORETHIS.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+IGNORETHIS.BorderSizePixel = 0
+IGNORETHIS.Position = UDim2.new(0, 0, -0.00612711906, 0)
+IGNORETHIS.Size = UDim2.new(0, 363, 0, 9)
+IGNORETHIS.ZIndex = 1000
+
+TextLabel.Parent = TopBarKeySystem
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0, 0, -0.00543478271, 0)
+TextLabel.Size = UDim2.new(0, 363, 0, 27)
+TextLabel.Font = Enum.Font.GothamBold
+TextLabel.Text = "ZenHub - Key System"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14.000
+
+TopBarMain.Name = "TopBarMain"
+TopBarMain.Parent = ZenHubOfficial
+TopBarMain.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TopBarMain.BorderSizePixel = 0
+TopBarMain.Position = UDim2.new(0.397664428, 0, 0.241269857, 0)
+TopBarMain.Size = UDim2.new(0, 332, 0, 326)
+TopBarMain.Visible = false
+TopBarMain.ZIndex = 999
+
+UICorner_7.Parent = TopBarMain
+
+Selection.Name = "Selection"
+Selection.Parent = TopBarMain
+Selection.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+Selection.BorderSizePixel = 0
+Selection.Position = UDim2.new(0, 0, 0.107361965, 0)
+Selection.Size = UDim2.new(0, 61, 0, 291)
+Selection.ZIndex = 1000
+
+UICorner_8.Parent = Selection
+
+IGNORE.Name = "IGNORE"
+IGNORE.Parent = Selection
+IGNORE.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+IGNORE.BorderSizePixel = 0
+IGNORE.Position = UDim2.new(0, 0, -0.00260367244, 0)
+IGNORE.Size = UDim2.new(0, 61, 0, 9)
+IGNORE.ZIndex = 1000
+
+IGNORE_2.Name = "IGNORE"
+IGNORE_2.Parent = Selection
+IGNORE_2.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+IGNORE_2.BorderSizePixel = 0
+IGNORE_2.Position = UDim2.new(0.883962154, 0, 0, 0)
+IGNORE_2.Size = UDim2.new(0, 7, 0, 290)
+IGNORE_2.ZIndex = 1000
+
+All.Name = "All"
+All.Parent = Selection
+All.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+All.BackgroundTransparency = 1.000
+All.Position = UDim2.new(0.180327863, 0, 0.0240549836, 0)
+All.Size = UDim2.new(0, 38, 0, 38)
+All.ZIndex = 1000
+All.Font = Enum.Font.GothamBold
+All.Text = "A"
+All.TextColor3 = Color3.fromRGB(255, 255, 255)
+All.TextScaled = true
+All.TextSize = 14.000
+All.TextWrapped = true
+
+UICorner_9.Parent = All
+
+Universal.Name = "Universal"
+Universal.Parent = Selection
+Universal.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Universal.BackgroundTransparency = 1.000
+Universal.Position = UDim2.new(0.180327863, 0, 0.189003438, 0)
+Universal.Size = UDim2.new(0, 38, 0, 38)
+Universal.ZIndex = 1000
+Universal.Font = Enum.Font.GothamBold
+Universal.Text = "U"
+Universal.TextColor3 = Color3.fromRGB(255, 255, 255)
+Universal.TextScaled = true
+Universal.TextSize = 14.000
+Universal.TextWrapped = true
+
+UICorner_10.Parent = Universal
+
+ExitScript.Name = "ExitScript"
+ExitScript.Parent = Selection
+ExitScript.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ExitScript.BackgroundTransparency = 1.000
+ExitScript.BorderSizePixel = 0
+ExitScript.Position = UDim2.new(0.180327863, 0, 0.817869425, 0)
+ExitScript.Size = UDim2.new(0, 38, 0, 38)
+ExitScript.ZIndex = 1000
+ExitScript.Image = "http://www.roblox.com/asset/?id=9299763509"
+
+UICorner_11.Parent = ExitScript
+
+TextLabel_2.Parent = TopBarMain
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Size = UDim2.new(0, 332, 0, 33)
+TextLabel_2.Font = Enum.Font.GothamBold
+TextLabel_2.Text = "ZenHub - Cheats"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 14.000
+
+MainCheats.Name = "MainCheats"
+MainCheats.Parent = TopBarMain
+MainCheats.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+MainCheats.BorderSizePixel = 0
+MainCheats.Position = UDim2.new(0.182999998, 0, 0.105999999, 0)
+MainCheats.Size = UDim2.new(0, 271, 0, 291)
+
+UICorner_12.Parent = MainCheats
+
+IGNORE_3.Name = "IGNORE"
+IGNORE_3.Parent = MainCheats
+IGNORE_3.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+IGNORE_3.BorderSizePixel = 0
+IGNORE_3.Position = UDim2.new(0, 0, -0.00343642617, 0)
+IGNORE_3.Size = UDim2.new(0, 271, 0, 9)
+IGNORE_3.ZIndex = 1000
+
+IGNORE_4.Name = "IGNORE"
+IGNORE_4.Parent = MainCheats
+IGNORE_4.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+IGNORE_4.BorderSizePixel = 0
+IGNORE_4.Position = UDim2.new(0, 0, -0.00343642617, 0)
+IGNORE_4.Size = UDim2.new(0, 8, 0, 292)
+IGNORE_4.ZIndex = 1000
+
+TextLabel_3.Parent = MainCheats
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TextLabel_3.Position = UDim2.new(0.0516605154, 0, 0.0274914093, 0)
+TextLabel_3.Size = UDim2.new(0, 243, 0, 37)
+TextLabel_3.ZIndex = 1000
+TextLabel_3.Font = Enum.Font.GothamBold
+TextLabel_3.Text = "All Cheats"
+TextLabel_3.TextColor3 = Color3.fromRGB(150, 150, 150)
+TextLabel_3.TextSize = 20.000
+
+UICorner_13.Parent = TextLabel_3
+
+AllCheats.Name = "AllCheats"
+AllCheats.Parent = MainCheats
+AllCheats.Active = true
+AllCheats.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AllCheats.BackgroundTransparency = 1.000
+AllCheats.BorderSizePixel = 0
+AllCheats.Position = UDim2.new(0, 0, 0.156164944, 0)
+AllCheats.Size = UDim2.new(0, 271, 0, 244)
+AllCheats.ZIndex = 1000
+AllCheats.ScrollBarThickness = 8
+
+ChamsText.Name = "ChamsText"
+ChamsText.Parent = AllCheats
+ChamsText.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+ChamsText.Position = UDim2.new(0.0516605154, 0, 0.0232393928, 0)
+ChamsText.Size = UDim2.new(0, 198, 0, 34)
+ChamsText.ZIndex = 1000
+ChamsText.Font = Enum.Font.GothamBold
+ChamsText.Text = "Toggle Chams"
+ChamsText.TextColor3 = Color3.fromRGB(255, 255, 255)
+ChamsText.TextSize = 20.000
+
+UICorner_14.Parent = ChamsText
+
+ToggleChams.Name = "ToggleChams"
+ToggleChams.Parent = ChamsText
+ToggleChams.BackgroundColor3 = Color3.fromRGB(180, 0, 0)
+ToggleChams.Position = UDim2.new(1.04930353, 0, -0.0025457032, 0)
+ToggleChams.Size = UDim2.new(0, 35, 0, 34)
+ToggleChams.ZIndex = 1000
+ToggleChams.Font = Enum.Font.SourceSans
+ToggleChams.Text = ""
+ToggleChams.TextColor3 = Color3.fromRGB(0, 0, 0)
+ToggleChams.TextSize = 14.000
+
+UICorner_15.Parent = ToggleChams
+
+AimbotText.Name = "AimbotText"
+AimbotText.Parent = AllCheats
+AimbotText.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+AimbotText.Position = UDim2.new(0.0516605154, 0, 0.0988407731, 0)
+AimbotText.Size = UDim2.new(0, 198, 0, 34)
+AimbotText.ZIndex = 1000
+AimbotText.Font = Enum.Font.GothamBold
+AimbotText.Text = "Toggle Aimbot \"E\""
+AimbotText.TextColor3 = Color3.fromRGB(255, 255, 255)
+AimbotText.TextSize = 20.000
+
+UICorner_16.Parent = AimbotText
+
+ToggleAimbot.Name = "ToggleAimbot"
+ToggleAimbot.Parent = AimbotText
+ToggleAimbot.BackgroundColor3 = Color3.fromRGB(180, 0, 0)
+ToggleAimbot.Position = UDim2.new(1.04930353, 0, -0.0025457032, 0)
+ToggleAimbot.Size = UDim2.new(0, 35, 0, 34)
+ToggleAimbot.ZIndex = 1000
+ToggleAimbot.Font = Enum.Font.SourceSans
+ToggleAimbot.Text = ""
+ToggleAimbot.TextColor3 = Color3.fromRGB(0, 0, 0)
+ToggleAimbot.TextSize = 14.000
+
+UICorner_17.Parent = ToggleAimbot
+
+UniversalCheats.Name = "UniversalCheats"
+UniversalCheats.Parent = MainCheats
+UniversalCheats.Active = true
+UniversalCheats.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UniversalCheats.BackgroundTransparency = 1.000
+UniversalCheats.BorderSizePixel = 0
+UniversalCheats.Position = UDim2.new(0, 0, 0.156164944, 0)
+UniversalCheats.Size = UDim2.new(0, 271, 0, 244)
+UniversalCheats.Visible = false
+UniversalCheats.ZIndex = 1000
+UniversalCheats.ScrollBarThickness = 8
+
+ChamsText_2.Name = "ChamsText"
+ChamsText_2.Parent = UniversalCheats
+ChamsText_2.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+ChamsText_2.Position = UDim2.new(0.0516605154, 0, 0.0232393928, 0)
+ChamsText_2.Size = UDim2.new(0, 198, 0, 34)
+ChamsText_2.ZIndex = 1000
+ChamsText_2.Font = Enum.Font.GothamBold
+ChamsText_2.Text = "Toggle Chams"
+ChamsText_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+ChamsText_2.TextSize = 20.000
+
+UICorner_18.Parent = ChamsText_2
+
+ToggleChams_2.Name = "ToggleChams"
+ToggleChams_2.Parent = ChamsText_2
+ToggleChams_2.BackgroundColor3 = Color3.fromRGB(180, 0, 0)
+ToggleChams_2.Position = UDim2.new(1.04930353, 0, -0.0025457032, 0)
+ToggleChams_2.Size = UDim2.new(0, 35, 0, 34)
+ToggleChams_2.ZIndex = 1000
+ToggleChams_2.Font = Enum.Font.SourceSans
+ToggleChams_2.Text = ""
+ToggleChams_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+ToggleChams_2.TextSize = 14.000
+
+UICorner_19.Parent = ToggleChams_2
+
+AimbotText_2.Name = "AimbotText"
+AimbotText_2.Parent = UniversalCheats
+AimbotText_2.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+AimbotText_2.Position = UDim2.new(0.0516605154, 0, 0.0988407731, 0)
+AimbotText_2.Size = UDim2.new(0, 198, 0, 34)
+AimbotText_2.ZIndex = 1000
+AimbotText_2.Font = Enum.Font.GothamBold
+AimbotText_2.Text = "Toggle Aimbot \"E\""
+AimbotText_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+AimbotText_2.TextSize = 20.000
+
+UICorner_20.Parent = AimbotText_2
+
+ToggleAimbot_2.Name = "ToggleAimbot"
+ToggleAimbot_2.Parent = AimbotText_2
+ToggleAimbot_2.BackgroundColor3 = Color3.fromRGB(180, 0, 0)
+ToggleAimbot_2.Position = UDim2.new(1.04930353, 0, -0.0025457032, 0)
+ToggleAimbot_2.Size = UDim2.new(0, 35, 0, 34)
+ToggleAimbot_2.ZIndex = 1000
+ToggleAimbot_2.Font = Enum.Font.SourceSans
+ToggleAimbot_2.Text = ""
+ToggleAimbot_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+ToggleAimbot_2.TextSize = 14.000
+
+UICorner_21.Parent = ToggleAimbot_2
+
+ConfirmExit.Name = "ConfirmExit"
+ConfirmExit.Parent = ZenHubOfficial
+ConfirmExit.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+ConfirmExit.BorderSizePixel = 0
+ConfirmExit.Position = UDim2.new(0.430239677, 0, 0.412698418, 0)
+ConfirmExit.Size = UDim2.new(0, 226, 0, 145)
+ConfirmExit.Visible = false
+ConfirmExit.ZIndex = 1001
+
+UICorner_22.Parent = ConfirmExit
+
+Yes.Name = "Yes"
+Yes.Parent = ConfirmExit
+Yes.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Yes.Position = UDim2.new(0.0558609441, 0, 0.310344815, 0)
+Yes.Size = UDim2.new(0, 200, 0, 38)
+Yes.ZIndex = 1002
+Yes.Font = Enum.Font.GothamBold
+Yes.Text = "YES"
+Yes.TextColor3 = Color3.fromRGB(255, 255, 255)
+Yes.TextSize = 25.000
+
+UICorner_23.Parent = Yes
+
+No.Name = "No"
+No.Parent = ConfirmExit
+No.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+No.Position = UDim2.new(0.0558609441, 0, 0.627586186, 0)
+No.Size = UDim2.new(0, 200, 0, 38)
+No.ZIndex = 1002
+No.Font = Enum.Font.GothamBold
+No.Text = "NO"
+No.TextColor3 = Color3.fromRGB(255, 255, 255)
+No.TextSize = 25.000
+
+UICorner_24.Parent = No
+
+TextLabel_4.Parent = ConfirmExit
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+TextLabel_4.Size = UDim2.new(0, 226, 0, 33)
+TextLabel_4.Font = Enum.Font.GothamBold
+TextLabel_4.Text = "Are you sure you want to exit \"ZenHub\"?"
+TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 14.000
+TextLabel_4.TextWrapped = true
+
+UICorner_25.Parent = TextLabel_4
+
+LoadingScreen.Name = "LoadingScreen"
+LoadingScreen.Parent = ZenHubOfficial
+LoadingScreen.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+LoadingScreen.BackgroundTransparency = 1.000
+LoadingScreen.BorderSizePixel = 0
+LoadingScreen.Position = UDim2.new(0.4191764, 0, 0.296825409, 0)
+LoadingScreen.Size = UDim2.new(0, 263, 0, 256)
+LoadingScreen.ZIndex = 999
+
+Z.Name = "Z"
+Z.Parent = LoadingScreen
+Z.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Z.BackgroundTransparency = 1.000
+Z.Position = UDim2.new(0.163498104, 0, 0.22265625, 0)
+Z.Size = UDim2.new(0, 113, 0, 124)
+Z.ZIndex = 1000
+Z.Font = Enum.Font.GothamBold
+Z.Text = "Z"
+Z.TextColor3 = Color3.fromRGB(118, 118, 118)
+Z.TextScaled = true
+Z.TextSize = 14.000
+Z.TextTransparency = 1.000
+Z.TextWrapped = true
+
+H.Name = "H"
+H.Parent = LoadingScreen
+H.BackgroundColor3 = Color3.fromRGB(173, 173, 173)
+H.BackgroundTransparency = 1.000
+H.Position = UDim2.new(0.40304184, 0, 0.29296875, 0)
+H.Size = UDim2.new(0, 113, 0, 124)
+H.ZIndex = 1000
+H.Font = Enum.Font.GothamBold
+H.Text = "H"
+H.TextColor3 = Color3.fromRGB(255, 255, 255)
+H.TextScaled = true
+H.TextSize = 14.000
+H.TextTransparency = 1.000
+H.TextWrapped = true
+
+-- Scripts:
+
+local function CRKS_fake_script() -- Admin.LocalScript 
+	local script = Instance.new('LocalScript', Admin)
+
+	local admin = {"ZenReblex", "Drizzymalachi", "Chickencobra12", "Benten777777777"}
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		for i,v in pairs(admin) do
+			if game.Players.LocalPlayer.Name == v then
+				script.Parent.Parent.Parent.Visible = false
+				script.Parent.Parent.Parent.Parent.TopBarMain.Visible = true
+			else
+				print("NOT AN ADMIN!")
+			end
+		end
+	end)
 end
+coroutine.wrap(CRKS_fake_script)()
+local function HQQYTC_fake_script() -- Login.LocalScript 
+	local script = Instance.new('LocalScript', Login)
 
-local UserInputService = game:GetService("UserInputService")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local HttpService = game:GetService("HttpService")
-local RunService = game:GetService("RunService")
-local Teams = game:GetService("Teams")
-
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-
-local Repository = "https://raw.githubusercontent.com/coastss/universal/main/"
-
-function shared:Kick(String)
-    LocalPlayer:Kick("[beachwave]: " .. String)
-    return
+	local key = "ZenHub_91@187$64_Key"
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		if script.Parent.Parent.KeyInput.Text == key then
+			script.Parent.Parent.Parent.Visible = false
+			script.Parent.Parent.Parent.Parent.TopBarMain.Visible = true
+		end
+	end)
 end
+coroutine.wrap(HQQYTC_fake_script)()
+local function TJYXZU_fake_script() -- All.LocalScript 
+	local script = Instance.new('LocalScript', All)
 
-function shared:SetStatus()
+	script.Parent.MouseEnter:Connect(function()
+		script.Parent.BackgroundTransparency = 0.7
+	end)
+	
+	script.Parent.MouseLeave:Connect(function()
+		script.Parent.BackgroundTransparency = 1
+	end)
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		for i,v in pairs(script.Parent.Parent.Parent.MainCheats:GetChildren()) do
+			if v.Name == "UniversalCheats" then
+				v.Visible = false
+				
+			else
+				if v.Name == "AllCheats" then
+					v.Visible = true
+				end
+			end
+		end
+	end)
 end
+coroutine.wrap(TJYXZU_fake_script)()
+local function MXOE_fake_script() -- Universal.LocalScript 
+	local script = Instance.new('LocalScript', Universal)
 
-local function LoadFile(File)
-    shared:SetStatus("Loading " .. File .. "...")
-
-    local Source
-    local Success, Error = pcall(function() Source = game:HttpGet(Repository .. File) end)
-    
-    if Source and Success then
-        return loadstring(Source)()
-    end
-    
-    return Source, true
+	script.Parent.MouseEnter:Connect(function()
+		script.Parent.BackgroundTransparency = 0.7
+	end)
+	
+	script.Parent.MouseLeave:Connect(function()
+		script.Parent.BackgroundTransparency = 1
+	end)
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		for i,v in pairs(script.Parent.Parent.Parent.MainCheats:GetChildren()) do
+			if v.Name == "AllCheats" then
+				v.Visible = false
+	
+			else
+				if v.Name == "UniversalCheats" then
+					v.Visible = true
+				end
+			end
+		end
+	end)
 end
+coroutine.wrap(MXOE_fake_script)()
+local function JYONW_fake_script() -- ExitScript.LocalScript 
+	local script = Instance.new('LocalScript', ExitScript)
 
-shared.BeachwaveVersion = "1/18/2022"
-local Loader = LoadFile("utilities/loader.lua")
-Loader:Open()
-
-local Games = {
-    [1954906532] = "games/riotfall.lua", --// RIOTFALL
-    [111958650] = "games/arsenal.lua", --// Arsenal
-    [113491250] = "games/phantom_forces.lua", --// Phantom Forces
-}
-
-if not getgenv().Library then
-    getgenv().Library = LoadFile("utilities/ui_library.lua")
+	script.Parent.MouseEnter:Connect(function()
+		script.Parent.BackgroundTransparency = 0.7
+	end)
+	
+	script.Parent.MouseLeave:Connect(function()
+		script.Parent.BackgroundTransparency = 1
+	end)
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Parent.ConfirmExit.Visible = true
+	end)
 end
+coroutine.wrap(JYONW_fake_script)()
+local function XXAQ_fake_script() -- ToggleChams.LocalScript 
+	local script = Instance.new('LocalScript', ToggleChams)
 
-Library.flags["Settings Config File"] = ""
-Library.flags["Aimbot Active"] = false
- 
-local CIELUVInterpolator = LoadFile("utilities/cieluv_interpolator.lua")
-
-local HealthbarLerp = CIELUVInterpolator:Lerp(Color3.fromRGB(255, 0, 0), Color3.fromRGB(0, 255, 0))
-Library.flags["Aimbot Active"] = false
-
-local DrawingProperties = {
-    Line = {
-        Thickness = 1.5,
-        Color = Color3.fromRGB(255, 255, 255),
-        Visible = false
-    },
-    Text = {
-        Size = 16,
-        Center = true,
-        Outline = true,
-        Color = Color3.fromRGB(255, 255, 255),
-        Visible = false
-    },
-    Circle = {
-        Thickness = 1.5,
-        NumSides = 100,
-        Radius = 0,
-        Filled = false,
-        Color = Color3.fromRGB(255, 255, 255),
-        Visible = false
-    },
-    Square = {
-        Thickness = 1.5,
-        Filled = false,
-        Color = Color3.fromRGB(255, 255, 255),
-        Visible = false
-    },
-    Image = {
-        Rounding = 0,
-        Visible = false
-    }
-}
-
-local Visuals = {Players = {}} do
-    function Visuals:Round(Number, Bracket)
-        Bracket = (Bracket or 1)
-
-        if typeof(Number) == "Vector2" then
-            return Vector2.new(Visuals:Round(Number.X), Visuals:Round(Number.Y))
-        else
-            return (Number - Number % (Bracket or 1))
-        end
-    end
-
-    function Visuals:GetScreenPosition(Position)
-        local Position, Visible = Workspace.CurrentCamera:WorldToViewportPoint(Position)
-        local FullPosition = Position
-        Position = Vector2.new(Position.X, Position.Y)
-
-        return Position, Visible, FullPosition
-    end
-
-    function Visuals:CreateDrawing(Type, Custom)
-        local Drawing = Drawing.new(Type)
-
-        for Property, Value in pairs(DrawingProperties[Type]) do
-            Drawing[Property] = Value
-        end
-
-        if Custom then
-            for Property, Value in pairs(Custom) do
-                Drawing[Property] = Value
-            end
-        end
-
-        return Drawing
-    end
-
-    function Visuals.AddPlayer(Player)
-        if not Visuals.Players[Player] then
-            Visuals.Players[Player] = {
-                Box = {
-                    Outline = Visuals:CreateDrawing("Square", {Color = Color3.fromRGB(0, 0, 0)}),
-                    Main = Visuals:CreateDrawing("Square")
-                    --// Main = Visuals:CreateDrawing("Image", {Data = game:HttpGet("https://coasts.cool/uploads/48ny7FCjZ9iCmbAwirI.png")})
-
-                },
-                Healthbar = {
-                    Outline = Visuals:CreateDrawing("Square", {Filled = true, Color = Color3.fromRGB(0, 0, 0)}),
-                    Main = Visuals:CreateDrawing("Square", {Filled = true, Color = Color3.fromRGB(0, 255, 0)})
-                },
-                Info = {
-                    Main = Visuals:CreateDrawing("Text"),
-                    Extra = Visuals:CreateDrawing("Text")
-                }
-            }
-        end
-    end
-
-    function Visuals.RemovePlayer(Player)
-        if Visuals.Players[Player] then
-            for Index, Table in pairs(Visuals.Players[Player]) do
-                for Index2, Drawing in pairs(Table) do
-                    if Drawing.Remove then
-                        Drawing:Remove()
-                    end
-                end
-            end
-
-            Visuals.Players[Player] = nil
-        end
-    end
+	local enabled = false
+	
+	function createC(name,parent,face,color)
+		local chams = Instance.new("SurfaceGui", parent)
+		chams.Parent = parent
+		chams.Face = Enum.NormalId[face]
+		chams.ResetOnSpawn = false
+		chams.Name = name
+		chams.AlwaysOnTop = true
+		local frame = Instance.new("Frame", chams)
+		frame.BackgroundColor3 = Color3.fromRGB(150)
+		frame.Size = UDim2.new(1,0,1,0)
+	end
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		print(enabled)
+		if enabled == true then
+			script.Parent.BackgroundColor3 = Color3.fromRGB(98, 180, 75)
+		else
+			script.Parent.BackgroundColor3 = Color3.fromRGB(180,0,0)
+		end
+	end)
+	
+	
+	while wait() do
+	
+		for i,v in pairs (game:GetService("Players"):GetPlayers()) do
+			if v ~= game:GetService("Players").LocalPlayer and v.Character ~= nil and v.Character:FindFirstChild("Head") and v.TeamColor == game.Players.LocalPlayer.TeamColor then
+	
+				for i,v in pairs (v.Character:getChildren()) do
+					if v:FindFirstChild("cham") then
+						for i,v in pairs(v:GetChildren()) do
+							if v.Name == "cham" then
+								v:Destroy()
+							end
+						end
+					end
+				end
+			end
+		end
+	
+		if enabled == true then
+			for i,v in pairs (game:GetService("Players"):GetPlayers()) do
+				if v ~= game:GetService("Players").LocalPlayer and v.Character ~= nil and v.Character:FindFirstChild("Head") and v.Character.Head:FindFirstChild("cham") == nil and v.TeamColor ~= game:GetService("Players").LocalPlayer.TeamColor then
+	
+					for i,v in pairs (v.Character:getChildren()) do
+						if v:IsA("MeshPart") or v.Name == "Head" then
+							createC("cham",v,"Front")
+							createC("cham",v,"Back")
+							createC("cham",v,"Left")
+							createC("cham",v,"Right")
+							createC("cham",v,"Top")
+							createC("cham",v,"Bottom")
+						end
+					end
+				end
+			end
+		end
+	
+		if enabled == false then
+			for i,v in pairs (game:GetService("Players"):GetPlayers()) do
+				if v ~= game:GetService("Players").LocalPlayer and v.Character ~= nil and v.Character:FindFirstChild("Head") then
+	
+					for i,v in pairs (v.Character:getChildren()) do
+						if v:FindFirstChild("cham") then
+							for i,v in pairs(v:GetChildren()) do
+								if v.Name == "cham" then
+									v:Destroy()
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
 end
+coroutine.wrap(XXAQ_fake_script)()
+local function DFSN_fake_script() -- ToggleAimbot.LocalScript 
+	local script = Instance.new('LocalScript', ToggleAimbot)
 
-local PlayerUtilities = {} do
-    function PlayerUtilities:IsPlayerAlive(Player)
-        local Character = Player.Character
-        local Humanoid = (Character and Character:FindFirstChildWhichIsA("Humanoid"))
-
-        if Character and Humanoid then
-            if Humanoid.Health > 0 then
-                return true
-            end
-        end
-
-        return false
-    end
-
-    function PlayerUtilities:GetHealth(Player)
-        local Character = Player.Character
-        local Humanoid = (Character and Character:FindFirstChildWhichIsA("Humanoid"))
-
-        if Character and Humanoid then
-            return {
-                CurrentHealth = Humanoid.Health,
-                MaxHealth = Humanoid.MaxHealth
-            }
-        end
-    end
-
-    function PlayerUtilities:GetBodyParts(Player)
-        local Character = Player.Character
-        local Head = (Character and Character:FindFirstChild("Head"))
-        local Root = (Character and Character:FindFirstChild("HumanoidRootPart"))
-        local Torso = Character and (Character:FindFirstChild("LowerTorso") or Character:FindFirstChild("Torso"))
-        local LeftArm = Character and (Character:FindFirstChild("LeftLowerArm") or Character:FindFirstChild("Left Arm"))
-        local RightArm = Character and (Character:FindFirstChild("RightLowerArm") or Character:FindFirstChild("Right Arm"))
-        local LeftLeg = Character and (Character:FindFirstChild("LeftLowerLeg") or Character:FindFirstChild("Left Leg"))
-        local RightLeg = Character and (Character:FindFirstChild("RightLowerLeg") or Character:FindFirstChild("Right Leg"))
-
-        if Character and (Head and Root and Torso and LeftArm and RightArm and LeftLeg and RightLeg) then
-            return {
-                Character = Character,
-                Head = Head,
-                Root = Root,
-                Torso = Torso,
-                LeftArm = LeftArm,
-                RightArm = RightArm,
-                LeftLeg = LeftLeg,
-                RightLeg = RightLeg
-            }
-        end
-    end
-
-    function PlayerUtilities:GetTeamColor(Player)
-        return Player.TeamColor.Color
-    end
-
-    function PlayerUtilities:IsOnClientTeam(Player)
-        if LocalPlayer.Team == Player.Team then
-            return true
-        end
-
-        return false
-    end
-
-    function PlayerUtilities:GetDistanceFromClient(Position)
-        return LocalPlayer:DistanceFromCharacter(Position)
-    end
-
-    function PlayerUtilities:GetClosestPlayer()
-        local ClosestPlayer = nil
-        local FarthestDistance = math.huge
-
-        for Index, Player in pairs(Players:GetPlayers()) do
-            if Player == LocalPlayer then continue end
-        
-            local PassedTeamCheck = true
-            local IsPlayerAlive = PlayerUtilities:IsPlayerAlive(Player)
-            local Health = PlayerUtilities:GetHealth(Player)
-            local BodyParts = PlayerUtilities:GetBodyParts(Player)
-            local IsOnClientTeam = PlayerUtilities:IsOnClientTeam(Player)
-        
-            if Library.flags["Aimbot Team Check"] and IsOnClientTeam then
-                PassedTeamCheck = false
-            end
-        
-            if IsPlayerAlive and Health and BodyParts and PassedTeamCheck then
-                local ScreenPosition, OnScreen = Visuals:GetScreenPosition(BodyParts.Root.Position)
-
-                if ScreenPosition and OnScreen then
-                    local MouseDistance = (ScreenPosition - UserInputService:GetMouseLocation()).Magnitude
-
-                    if MouseDistance < FarthestDistance then
-                        if Library.flags["Aimbot Use FOV"] then
-                            if MouseDistance <= Library.flags["Aimbot FOV Radius"] then
-                                FarthestDistance = MouseDistance
-                                ClosestPlayer = {
-                                    Player = Player,
-                                    BodyParts = BodyParts
-                                }
-                            end
-                        else
-                            FarthestDistance = MouseDistance
-                            ClosestPlayer = {
-                                Player = Player,
-                                BodyParts = BodyParts
-                            }
-                        end
-                    end
-                end
-            end
-        end
-
-        return ClosestPlayer
-    end
-
-    function PlayerUtilities:AimAt(Position, Smoothing)
-        local MouseLocation = UserInputService:GetMouseLocation()
-        MoveMouse(((Position.X - MouseLocation.X) / Smoothing), ((Position.Y - MouseLocation.Y) / Smoothing))
-    end
+	local uis = game:GetService("UserInputService")
+	local cam = game.Workspace.CurrentCamera
+	
+	local ms = game.Players.LocalPlayer:GetMouse()
+	
+	local fov_Setting = {
+		fov_Radius = 50
+	}
+	
+	local fovCircle = Drawing.new("Circle")
+	fovCircle.Radius = fov_Setting.fov_Radius
+	fovCircle.Thickness = 1
+	fovCircle.Filled = false
+	
+	fovCircle.Position = Vector2.new(cam.ViewportSize.X / 2, cam.ViewportSize.Y / 2)
+	
+	function closest()
+		local closestPlr = nil
+		local closestDist = math.huge
+	
+		for i,v in pairs(game.Players:GetPlayers()) do
+			if v ~= game.Players.LocalPlayer and v.TeamColor ~= game.Players.LocalPlayer.TeamColor then
+				local screen = cam:WorldToScreenPoint(v.Character.Head.Position)
+				local dist = (Vector2.new(ms.X,ms.Y) - Vector2.new(screen.X, screen.Y)).Magnitude
+				if dist < closestDist and dist < fov_Setting.fov_Radius then
+					closestPlr = v
+					closestDist = dist
+	
+				end
+			end
+		end
+		return closestPlr
+	end
+	
+	_G.aim = false
+	
+	uis.InputBegan:Connect(function(a)
+		if a.KeyCode == Enum.KeyCode.E then
+			_G.aim = true
+			while wait() do
+				if enabled == true then
+					cam.CFrame = CFrame.new(cam.CFrame.Position, closest().Character.Head.Position)
+					if _G.aim == false then return end
+				end
+			end
+		end
+	end)
+	
+	uis.InputEnded:Connect(function(a)
+		if enabled == true then
+			if a.KeyCode == Enum.KeyCode.E then
+				_G.aim = false
+			end
+		end
+	end)
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		print(enabled)
+		if enabled == true then
+			fovCircle.Visible = true
+			script.Parent.BackgroundColor3 = Color3.fromRGB(98, 180, 75)
+		else
+			fovCircle.Visible = false
+			script.Parent.BackgroundColor3 = Color3.fromRGB(180,0,0)
+		end
+	end)
 end
+coroutine.wrap(DFSN_fake_script)()
+local function EJPIKG_fake_script() -- ToggleChams_2.LocalScript 
+	local script = Instance.new('LocalScript', ToggleChams_2)
 
-if Games[game.GameId] then
-    local CustomGameFunctions = LoadFile(Games[game.GameId])
-
-    if CustomGameFunctions then
-        for Index, Value in pairs(CustomGameFunctions) do
-            PlayerUtilities[Index] = Value
-        end
-    else
-        shared:Kick("Failed to replace normal functions with custom ones on file: " .. Games[game.GameId])
-    end
+	local enabled = false
+	
+	function createC(name,parent,face,color)
+		local chams = Instance.new("SurfaceGui", parent)
+		chams.Parent = parent
+		chams.Face = Enum.NormalId[face]
+		chams.ResetOnSpawn = false
+		chams.Name = name
+		chams.AlwaysOnTop = true
+		local frame = Instance.new("Frame", chams)
+		frame.BackgroundColor3 = Color3.fromRGB(150)
+		frame.Size = UDim2.new(1,0,1,0)
+	end
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		print(enabled)
+		if enabled == true then
+			script.Parent.BackgroundColor3 = Color3.fromRGB(98, 180, 75)
+		else
+			script.Parent.BackgroundColor3 = Color3.fromRGB(180,0,0)
+		end
+	end)
+	
+	
+	while wait() do
+	
+		for i,v in pairs (game:GetService("Players"):GetPlayers()) do
+			if v ~= game:GetService("Players").LocalPlayer and v.Character ~= nil and v.Character:FindFirstChild("Head") and v.TeamColor == game.Players.LocalPlayer.TeamColor then
+	
+				for i,v in pairs (v.Character:getChildren()) do
+					if v:FindFirstChild("cham") then
+						for i,v in pairs(v:GetChildren()) do
+							if v.Name == "cham" then
+								v:Destroy()
+							end
+						end
+					end
+				end
+			end
+		end
+	
+		if enabled == true then
+			for i,v in pairs (game:GetService("Players"):GetPlayers()) do
+				if v ~= game:GetService("Players").LocalPlayer and v.Character ~= nil and v.Character:FindFirstChild("Head") and v.Character.Head:FindFirstChild("cham") == nil and v.TeamColor ~= game:GetService("Players").LocalPlayer.TeamColor then
+	
+					for i,v in pairs (v.Character:getChildren()) do
+						if v:IsA("MeshPart") or v.Name == "Head" then
+							createC("cham",v,"Front")
+							createC("cham",v,"Back")
+							createC("cham",v,"Left")
+							createC("cham",v,"Right")
+							createC("cham",v,"Top")
+							createC("cham",v,"Bottom")
+						end
+					end
+				end
+			end
+		end
+	
+		if enabled == false then
+			for i,v in pairs (game:GetService("Players"):GetPlayers()) do
+				if v ~= game:GetService("Players").LocalPlayer and v.Character ~= nil and v.Character:FindFirstChild("Head") then
+	
+					for i,v in pairs (v.Character:getChildren()) do
+						if v:FindFirstChild("cham") then
+							for i,v in pairs(v:GetChildren()) do
+								if v.Name == "cham" then
+									v:Destroy()
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
 end
+coroutine.wrap(EJPIKG_fake_script)()
+local function MCYMD_fake_script() -- ToggleAimbot_2.LocalScript 
+	local script = Instance.new('LocalScript', ToggleAimbot_2)
 
-local RepositoryVersion = LoadFile("version.lua")
-if shared.BeachwaveVersion ~= RepositoryVersion then
-    for Iteration = 5, 1, -1 do
-        shared:SetStatus("(" .. Iteration .. ") update available! loading latest version...")
-        task.wait(1)
-    end
-
-    Loader:Close()
-    loadstring(game:HttpGet(Repository .. "main.lua"))()
-    return
+	local uis = game:GetService("UserInputService")
+	local cam = game.Workspace.CurrentCamera
+	
+	local ms = game.Players.LocalPlayer:GetMouse()
+	
+	local fov_Setting = {
+		fov_Radius = 50
+	}
+	
+	local fovCircle = Drawing.new("Circle")
+	fovCircle.Radius = fov_Setting.fov_Radius
+	fovCircle.Thickness = 1
+	fovCircle.Filled = false
+	
+	fovCircle.Position = Vector2.new(cam.ViewportSize.X / 2, cam.ViewportSize.Y / 2)
+	
+	function closest()
+		local closestPlr = nil
+		local closestDist = math.huge
+	
+		for i,v in pairs(game.Players:GetPlayers()) do
+			if v ~= game.Players.LocalPlayer and v.TeamColor ~= game.Players.LocalPlayer.TeamColor then
+				local screen = cam:WorldToScreenPoint(v.Character.Head.Position)
+				local dist = (Vector2.new(ms.X,ms.Y) - Vector2.new(screen.X, screen.Y)).Magnitude
+				if dist < closestDist and dist < fov_Setting.fov_Radius then
+					closestPlr = v
+					closestDist = dist
+	
+				end
+			end
+		end
+		return closestPlr
+	end
+	
+	_G.aim = false
+	
+	uis.InputBegan:Connect(function(a)
+		if a.KeyCode == Enum.KeyCode.E then
+			_G.aim = true
+			while wait() do
+				if enabled == true then
+					cam.CFrame = CFrame.new(cam.CFrame.Position, closest().Character.Head.Position)
+					if _G.aim == false then return end
+				end
+			end
+		end
+	end)
+	
+	uis.InputEnded:Connect(function(a)
+		if enabled == true then
+			if a.KeyCode == Enum.KeyCode.E then
+				_G.aim = false
+			end
+		end
+	end)
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		print(enabled)
+		if enabled == true then
+			fovCircle.Visible = true
+			script.Parent.BackgroundColor3 = Color3.fromRGB(98, 180, 75)
+		else
+			fovCircle.Visible = false
+			script.Parent.BackgroundColor3 = Color3.fromRGB(180,0,0)
+		end
+	end)
 end
+coroutine.wrap(MCYMD_fake_script)()
+local function AKEV_fake_script() -- Yes.LocalScript 
+	local script = Instance.new('LocalScript', Yes)
 
-Loader:Close()
-
-local FOVCircle = Visuals:CreateDrawing("Circle")
-for Index, Player in pairs(Players:GetPlayers()) do
-    if Player == LocalPlayer then continue end
-    Visuals.AddPlayer(Player)
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent:Destroy()
+	end)
 end
+coroutine.wrap(AKEV_fake_script)()
+local function KMMHL_fake_script() -- No.LocalScript 
+	local script = Instance.new('LocalScript', No)
 
-local PlayerAddedEvent = Players.PlayerAdded:Connect(Visuals.AddPlayer)
-local PlayerRemovingEvent = Players.PlayerRemoving:Connect(Visuals.RemovePlayer)
-local LoopId = HttpService:GenerateGUID(false)
-RunService:BindToRenderStep(LoopId, 1, function()
-    FOVCircle.Position = UserInputService:GetMouseLocation()
-    FOVCircle.Color = Library.flags["Aimbot FOV Color"]
-    FOVCircle.Visible = ((Library.flags["Aimbot Enabled"] and Library.flags["Aimbot Use FOV"]) and true) or false
-    
-    if Library.flags["Aimbot Dynamic FOV"] then
-        FOVCircle.Radius = (Library.flags["Aimbot FOV Radius"] + workspace.CurrentCamera.FieldOfView)
-    else
-        FOVCircle.Radius = Library.flags["Aimbot FOV Radius"]
-    end
-
-    if Library.flags["Aimbot Enabled"] and Library.flags["Aimbot Active"] then
-        local ClosestPlayer = PlayerUtilities:GetClosestPlayer()
-
-        if ClosestPlayer and (ClosestPlayer.Player and ClosestPlayer.BodyParts) then
-            local ScreenPosition, OnScreen = Visuals:GetScreenPosition(ClosestPlayer.BodyParts.Head.Position)
-
-            if ScreenPosition and OnScreen then
-                PlayerUtilities:AimAt(ScreenPosition, Library.flags["Aimbot Smoothing"])
-            end
-        end
-    end
-
-    for Index, Player in pairs(Players:GetPlayers()) do
-        if Player == LocalPlayer then continue end
-
-        local Objects = Visuals.Players[Player]
-        if not Objects then continue end
-
-        local OnScreen, PassedTeamCheck = false, true
-        local IsPlayerAlive = PlayerUtilities:IsPlayerAlive(Player)
-        local Health = PlayerUtilities:GetHealth(Player)
-        local BodyParts = PlayerUtilities:GetBodyParts(Player)
-        local PlayerColor = (PlayerUtilities:IsOnClientTeam(Player) and Library.flags["Visuals Ally Color"]) or Library.flags["Visuals Enemy Color"]
-        local IsOnClientTeam = PlayerUtilities:IsOnClientTeam(Player)
-
-        if Library.flags["Visuals Use Team Color"] then
-            PlayerColor = PlayerUtilities:GetTeamColor(Player)
-        end
-
-        if Library.flags["Visuals Team Check"] and IsOnClientTeam then
-            PassedTeamCheck = false
-        end
-
-        if IsPlayerAlive and Health and BodyParts and PlayerColor and PassedTeamCheck then
-            local HealthPercent = (Health.CurrentHealth / Health.MaxHealth)
-            local Distance = PlayerUtilities:GetDistanceFromClient(BodyParts.Root.Position)
-            ScreenPosition, OnScreen = Visuals:GetScreenPosition(BodyParts.Root.Position)
-
-            local Orientation, Size = BodyParts.Character:GetBoundingBox()
-            local Height = (Workspace.CurrentCamera.CFrame - Workspace.CurrentCamera.CFrame.Position) * Vector3.new(0, (math.clamp(Size.Y, 1, 10) + 0.5) / 2, 0)
-            Height = math.abs(Workspace.CurrentCamera:WorldToScreenPoint(Orientation.Position + Height).Y - Workspace.CurrentCamera:WorldToScreenPoint(Orientation.Position - Height).Y)
-            Size = Visuals:Round(Vector2.new((Height / 2), Height))
-
-            local NameString = string.format("%s", Player.Name)
-
-            if Player.DisplayName ~= Player.Name then
-                NameString = string.format("%s | @%s", Player.Name, Player.DisplayName)
-            end
-
-            Objects.Box.Main.Color = PlayerColor
-            Objects.Box.Main.Size = Size
-            Objects.Box.Main.Position = Visuals:Round(Vector2.new(ScreenPosition.X, ScreenPosition.Y) - (Size / 2))
-
-            Objects.Box.Outline.Thickness = (Objects.Box.Main.Thickness * 2)
-            Objects.Box.Outline.Size = Objects.Box.Main.Size
-            Objects.Box.Outline.Position = Objects.Box.Main.Position
-
-            Objects.Healthbar.Main.Color = HealthbarLerp(HealthPercent)
-            Objects.Healthbar.Main.Size = Vector2.new(2, (-Objects.Box.Main.Size.Y * HealthPercent))
-            Objects.Healthbar.Main.Position = Vector2.new((Objects.Box.Main.Position.X - (Objects.Box.Outline.Thickness + 1)), (Objects.Box.Main.Position.Y + Objects.Box.Main.Size.Y))
-
-            Objects.Healthbar.Outline.Size = Vector2.new(4, (Objects.Box.Main.Size.Y + 2))
-            Objects.Healthbar.Outline.Position = Vector2.new((Objects.Box.Main.Position.X - (Objects.Box.Outline.Thickness + 2)), (Objects.Box.Main.Position.Y - 1))
-            
-            Objects.Info.Main.Font = Drawing.Fonts[Library.flags["Visuals Info Font"]]
-            Objects.Info.Main.Text = NameString
-            Objects.Info.Main.Size = Library.flags["Visuals Info Font Size"]
-            Objects.Info.Main.Position = Vector2.new(((Objects.Box.Main.Size.X / 2) + Objects.Box.Main.Position.X), ((ScreenPosition.Y - Objects.Box.Main.Size.Y / 2) - 18))
-
-            Objects.Info.Extra.Font = Drawing.Fonts[Library.flags["Visuals Info Font"]]
-            Objects.Info.Extra.Text = string.format("(%dft) (%d/%d)", Distance, Health.CurrentHealth, Health.MaxHealth)
-            Objects.Info.Extra.Size = Library.flags["Visuals Info Font Size"]
-            Objects.Info.Extra.Position = Vector2.new(((Objects.Box.Main.Size.X / 2) + Objects.Box.Main.Position.X), (Objects.Box.Main.Size.Y + Objects.Box.Main.Position.Y))
-        end
-
-        Objects.Box.Main.Visible = (OnScreen and Library.flags["Visuals Show Boxes"]) or false
-        Objects.Box.Outline.Visible = Objects.Box.Main.Visible
-
-        Objects.Healthbar.Main.Visible = (OnScreen and Library.flags["Visuals Show Healthbar"]) or false
-        Objects.Healthbar.Outline.Visible = Objects.Healthbar.Main.Visible
-
-        Objects.Info.Main.Visible = (OnScreen and Library.flags["Visuals Show Info"]) or false
-        Objects.Info.Extra.Visible = (OnScreen and Library.flags["Visuals Show Extra Info"]) or false
-    end
-end)
-
-GlobalEnvironment().beachwave = {
-    Unload = function()
-        PlayerAddedEvent:Disconnect()
-        PlayerRemovingEvent:Disconnect()
-
-        for Flag, Value in pairs(Library.flags) do
-            if typeof(Value) == "boolean" then
-                Library.flags[Flag] = false
-            end
-        end
-
-        for Index, Player in pairs(Players:GetPlayers()) do
-            if Player == LocalPlayer then continue end
-            Visuals.RemovePlayer(Player)
-        end
-
-        RunService:UnbindFromRenderStep(LoopId)
-        Library.base:Destroy()
-        FOVCircle:Remove()
-
-        GlobalEnvironment().beachwave = nil
-    end
-}
-
-local Fonts = {} do
-    for Font, Number in pairs(Drawing.Fonts) do
-        table.insert(Fonts, Font)
-    end
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Visible = false
+	end)
 end
+coroutine.wrap(KMMHL_fake_script)()
+local function GDGBF_fake_script() -- Z.LocalScript 
+	local script = Instance.new('LocalScript', Z)
 
-Library.ConfigManager = {} do
-    local Directory = "beachwave"
-    Library.ConfigManager.Directory = Directory
-
-    local Conversions = {
-        toggle = function(Toggle, Value)
-            Toggle:SetState(Value)
-        end,
-        bind = function(Bind, Value)
-            Bind:SetKey(Value)
-        end,
-        slider = function(Slider, Value)
-            Slider:SetValue(Value)
-        end,
-        list = function(List, Value)
-            List:SetValue(Value)
-        end,
-        color = function(ColorPicker, Value)
-            ColorPicker:DisableRainbow()
-            ColorPicker:SetColor(Value)
-        end
-    }
-    
-    function Library.ConfigManager:LoadConfig()
-        FileName = ("%s/%s.bw"):format(Directory, Library.flags["Settings Config File"])
-        if not IsFolder(Directory) or not IsFile(FileName) then return end
-        
-        local Config = HttpService:JSONDecode(ReadFile(FileName))
-        for Index, Value in pairs(Config) do
-            if typeof(Value) == "string" and Value:sub(1, 1) == "#" then --// Assume it's a Color Picker
-                Library.flags[Index] = Color3.fromHex(Value)
-            else
-                Library.flags[Index] = Value
-            end
-        end
-        
-        for Index, Tab in pairs(Library.windows) do
-            for Index2, Option in pairs(Tab.options) do
-                if Conversions[Option.type] and (Option.flag and Library.flags[Option.flag]) then
-                    Conversions[Option.type](Option, Library.flags[Option.flag])
-                end
-            end
-        end
-    end
-
-    function Library.ConfigManager:SaveConfig()
-        FileName = ("%s/%s.bw"):format(Directory, Library.flags["Settings Config File"])
-        if not IsFolder(Directory) then MakeFolder(Directory) end
-        
-        local FlagsClone = {}
-        for Index, Value in pairs(Library.flags) do
-            if typeof(Value) == "Color3" then
-                Value = ("#" .. Value:ToHex())
-            end
-            
-            FlagsClone[Index] = Value
-        end
-
-        WriteFile(FileName, HttpService:JSONEncode(FlagsClone))
-    end
+	local waitDelay = false
+	
+	while wait(0.01) do
+		if script.Parent.TextTransparency > 0 then
+			script.Parent.TextTransparency -= 0.1
+		end
+	end
 end
+coroutine.wrap(GDGBF_fake_script)()
+local function JXXZ_fake_script() -- H.LocalScript 
+	local script = Instance.new('LocalScript', H)
 
-local AimbotTab = Library:CreateWindow("Aimbot")
-AimbotTab:AddToggle({text = "Enabled", flag = "Aimbot Enabled"})
-AimbotTab:AddBind({
-    text = "Bind",
-    flag = "Aimbot Bind",
-    key = Enum.UserInputType.MouseButton2,
-    hold = true,
-    callback = function(Value)
-        Library.flags["Aimbot Active"] = (not Value)
-    end
-})
+	local waitDelay = false
+	
+	while wait(0.01) do
+		if script.Parent.TextTransparency > 0 then
+			script.Parent.TextTransparency -= 0.1
+		end
+	end
+end
+coroutine.wrap(JXXZ_fake_script)()
+local function ALGRC_fake_script() -- LoadingScreen.LocalScript 
+	local script = Instance.new('LocalScript', LoadingScreen)
 
-AimbotTab:AddToggle({text = "Team Check", flag = "Aimbot Team Check"})
-AimbotTab:AddToggle({text = "Use Field of View", flag = "Aimbot Use FOV"})
---// AimbotTab:AddToggle({text = "Dynamic FOV", flag = "Aimbot Dynamic FOV"})
-AimbotTab:AddColor({
-    text = "FOV Circle Color",
-    flag = "Aimbot FOV Color",
-    color = Color3.fromRGB(255, 255, 255)
-})
-
-AimbotTab:AddSlider({
-    text = "FOV Radius",
-    flag = "Aimbot FOV Radius",
-    min = 0,
-    max = 500,
-    float = 1
-})
-
-AimbotTab:AddSlider({
-    text = "Smoothing",
-    flag = "Aimbot Smoothing",
-    min = 1,
-    max = 5,
-    float = 0.1
-})
-
-local VisualsTab = Library:CreateWindow("Visuals")
-VisualsTab:AddToggle({text = "Boxes", flag = "Visuals Show Boxes"})
-VisualsTab:AddToggle({text = "Healthbar", flag = "Visuals Show Healthbar"})
-VisualsTab:AddToggle({text = "Info", flag = "Visuals Show Info"})
-VisualsTab:AddToggle({text = "Extra Info", flag = "Visuals Show Extra Info"})
-VisualsTab:AddToggle({text = "Use Team Color", flag = "Visuals Use Team Color"})
-VisualsTab:AddToggle({text = "Team Check", flag = "Visuals Team Check"})
-VisualsTab:AddColor({
-    text = "Ally Color",
-    flag = "Visuals Ally Color",
-    color = Color3.fromRGB(0, 255, 0)
-})
-
-VisualsTab:AddColor({
-    text = "Enemy Color",
-    flag = "Visuals Enemy Color",
-    color = Color3.fromRGB(255, 0, 0)
-})
-
-VisualsTab:AddSlider({
-    text = "Font Size",
-    flag = "Visuals Info Font Size",
-    min = 12,
-    max = 42,
-    float = 1,
-    value = DrawingProperties.Text.Size
-})
-
-VisualsTab:AddList({
-    text = "Info Font",
-    flag = "Visuals Info Font",
-    values = Fonts
-})
-
-local SettingsTab = Library:CreateWindow("Settings")
-SettingsTab:AddLabel({text = ("Build: " .. shared.BeachwaveVersion)})
-SettingsTab:AddBox({text = "Config File Name", flag = "Settings Config File"})
-SettingsTab:AddButton({text = "Save Config", callback = function()
-    Library.ConfigManager:SaveConfig()
-end})
-
-SettingsTab:AddButton({text = "Load Config", callback = function()
-    Library.ConfigManager:LoadConfig()
-end})
-
-SettingsTab:AddButton({text = "Unload", callback = function()
-    GlobalEnvironment().beachwave.Unload()
-end})
-
-Library:Init()
-
-UserInputService.InputBegan:Connect(function(Input, GameProcessedEvent)
-    if GameProcessedEvent then return end
-    if Input.KeyCode == Enum.KeyCode.RightControl then
-        Library:Close()
-    end
-end)
+	local waitDelay = false
+	
+	while wait(0.01) do
+		if script.Parent.BackgroundTransparency > 0 then
+			script.Parent.BackgroundTransparency -= 0.1
+		end
+		
+		if script.Parent.BackgroundTransparency <= 0 then
+			wait(2)
+			script.Parent.Visible = false
+			script.Parent.Parent.TopBarKeySystem.Visible = true
+			script.Parent:Destroy()
+		end
+	end
+end
+coroutine.wrap(ALGRC_fake_script)()
